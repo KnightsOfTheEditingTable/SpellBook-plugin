@@ -67,7 +67,7 @@ new SpellBook(
 The plugin extends EventEmitter and emits events when commands are triggered:
 
 ```javascript
-spellBook.on('command-id', (commandID) => {
+spellBook.on('command.id', (commandID) => {
     console.log('command.id triggered!')
 });
 ```
