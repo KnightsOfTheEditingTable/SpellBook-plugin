@@ -1,0 +1,33 @@
+{
+    "name": "spell-book",
+    "version": "1.0.0",
+    "description": "Add Spell Book support to an extension. Execute actions with shortcuts or control surface.",
+    "main": "src/index.js",
+    "types": "src/index.d.ts",
+    "files": [
+        "src",
+        "README.md"
+    ],
+    "keywords": [
+        "adobe",
+        "cep",
+        "extension",
+        "spellbook",
+        "plugin",
+        "shortcuts",
+        "commands"
+    ],
+    "author": "Ivan Stepanov, Knights of the Editing Table",
+    "license": "MIT",
+    "dependencies": {
+        "events": "^3.3.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/knights-of-the-editing-table/spell-book-plugin.git"
+    },
+    "bugs": {
+        "url": "https://github.com/knights-of-the-editing-table/spell-book-plugin/issues"
+    },
+    "homepage": "https://github.com/knights-of-the-editing-table/spell-book-plugin#readme"
+}
