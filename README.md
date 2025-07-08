@@ -1,6 +1,8 @@
 # Spell Book
 
-A JavaScript library for creating Adobe CEP extensions that integrate with the Spell Book system. This module provides a clean interface for registering commands and handling shortcuts in Adobe applications.
+Spell Book is a support app to listen for a shortcut or a control surface button press in Adobe apps,
+to trigger 3rd party extension commands.
+This module provides an interface for registering commands and handling shortcuts in your Adobe extension.
 
 ## Installation
 
@@ -17,43 +19,16 @@ import SpellBook from 'spell-book';
 
 const commands = [
     {
-        commandID: 'NotKnight.test',
-        name: 'NotKnight Test',
-        action: () => {
-            alert('NotKnight Test')
+        commandID: 'command.id',
+        name: 'Command 1', // use localised name if needed
+        group: 'Group 1', // optional
+        action: () => { // run action when command is triggered
+            console.log('command.id triggered!')
         }
     }
 ];
 
-const spellBook = new SpellBook('NotKnight', 'not.knight', commands);
-```
-
-### Advanced Usage
-
-```javascript
-import SpellBook from 'spell-book';
-
-const spellBook = new SpellBook('My Extension', 'my.extension');
-
-// Register commands later
-spellBook.register([
-    {
-        commandID: 'my-command',
-        name: 'My Command',
-        action: () => {
-            console.log('Command executed!');
-        }
-    }
-]);
-
-// Control listening
-spellBook.stop();  // Stop listening for commands
-spellBook.start(); // Start listening for commands
-
-// Listen for events
-spellBook.on('my-command', (commandID) => {
-    console.log(`Command ${commandID} was triggered`);
-});
+const spellBook = new SpellBook('Extension name', 'extension.id', commands);
 ```
 
 ### Command Interface
@@ -63,7 +38,7 @@ spellBook.on('my-command', (commandID) => {
  * @typedef {Object} Command
  * @property {string} commandID - Unique identifier for the command
  * @property {string} name - Display name for the command
- * @property {string} [group] - Group the command belongs to
+ * @property {string?} group - Name of group the command belongs to
  * @property {(args?: any) => void} [action] - Function to execute when command is triggered
  */
 ```
@@ -78,13 +53,12 @@ spellBook.on('my-command', (commandID) => {
 new SpellBook(
     pluginName: string,
     pluginID: string,
-    commands?: Command[]
-)
+    commands?: Command[])
 ```
 
 #### Methods
 
-- `register(commands: Command[]): void` - Register or update commands
+- `register(commands: Command[]): void` - Add or update commands
 - `start(): void` - Start listening for command events
 - `stop(): void` - Stop listening for command events
 
@@ -94,19 +68,23 @@ The plugin extends EventEmitter and emits events when commands are triggered:
 
 ```javascript
 spellBook.on('command-id', (commandID) => {
-    // Handle command trigger
+    console.log('command.id triggered!')
 });
 ```
 
+## Supported Adobe Hosts
+- Premiere Pro
+- After Effects
+- Photoshop (CEP)
+- Illustrator
+
 ## Integration with Adobe CEP
 
-This module is designed to work with Adobe CEP extensions and uses the native `window.__adobe_cep__` interface. Make sure your extension manifest includes the necessary permissions and that the Spell Book system is available in your Adobe application.
+This module is designed to work with Adobe CEP extensions and uses the native `window.__adobe_cep__` interface.
+Make sure that Spell Book is installed (both app and Spell Book extension).
 
-### Requirements
-
-- Adobe CEP extension environment
-- Spell Book system running in the Adobe application
-- Node.js `events` module (included as dependency)
+## UXP support
+UXP support will be added later.
 
 ## License
 
