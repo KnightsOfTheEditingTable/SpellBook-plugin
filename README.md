@@ -7,7 +7,7 @@ This module provides an interface for registering commands and handling shortcut
 ## Installation
 
 ```bash
-npm install spell-book
+npm install @knights-of-the-editing-table/spell-book
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install spell-book
 ### Basic Setup
 
 ```javascript
-import SpellBook from 'spell-book';
+import SpellBook from '@knights-of-the-editing-table/spell-book';
 
 const commands = [
     {
