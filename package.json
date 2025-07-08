@@ -1,6 +1,6 @@
 {
     "name": "@knights-of-the-editing-table/spell-book",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Add Spell Book support to an extension. Execute actions with shortcuts or control surface.",
     "main": "src/index.js",
     "types": "src/index.d.ts",
